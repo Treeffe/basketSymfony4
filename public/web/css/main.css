@@ -1,0 +1,25 @@
+.emplacementHome
+{
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 20%;
+}
+
+.footerDesign
+{
+    background-color: #5a6268;
+    color: #fff;
+}
+
+body{background: #ebeff2;}
+.bck1{background: #fff;}
+
+/*generique*/
+.padded{padding: 15px;}
+
+/*header*/
+header#header {margin-bottom: 20px;padding: 10px;}
+header#header h1 {text-align: center;color: #5cb85c;}
+
+/*footer*/
+footer#footer{margin-top: 20px;padding: 10px;}

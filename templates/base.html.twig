@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block metadata %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+{% endblock metadata %}
+
+
+{% block content %}
+        {% block body %}
+            <div class="emplacementHome">
+                <div class="">
+                    <h2>
+                        BASKETBALL
+                    </h2>
+                    <p>
+                        Ce site permettra de faire un vite tour d'horizon sur les équipe de NBA et leur Histoire
+                    </p>
+                    <p>
+                        Bonne visite à tous
+                    </p>
+                </div>
+            </div>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+{% endblock %}
