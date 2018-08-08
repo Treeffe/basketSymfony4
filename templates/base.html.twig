@@ -22,6 +22,17 @@
                     </p>
                 </div>
             </div>
+            {% for test in tests %}
+                <p>
+                    id du test : {{ test.id }}
+                </p>
+                <p>
+                    Name du test : {{ test.name }}
+                </p>
+                <p>
+                    id du user : {{ test.user.id }}
+                </p>
+            {% endfor %}
         {% endblock %}
         {% block javascripts %}{% endblock %}
 {% endblock %}

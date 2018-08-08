@@ -8,18 +8,23 @@
 
 namespace App\Controller;
 
+use App\Entity\Test;
+use App\Entity\Test2;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Common\Persistence\ObjectManager;
 
-class DefaultController extends AbstractController
+class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $number = random_int(0, 100);
-        //echo getcwd() . "\n";
-        //die("bonjour");
-        return $this->render('base.html.twig', array(
-            'number' => $number,
-        ));
+        $tests = $this->getDoctrine()
+            ->getRepository(Test2::class)
+            ->findAll();
+
+        return $this->render('base.html.twig', array('tests' => $tests ));
     }
 }

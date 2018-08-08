@@ -12,5 +12,15 @@ php bin/console doctrine:migration:diff ********* php bin/console doctrine:migra
 
 Ceci est un squelette d'une application et l'initiation à un framework en autodidactie 
 
+use Doctrine\ORM\Mapping\ManyToOne; ******  use Doctrine\ORM\Mapping\JoinColumn;    Permet
+d'utiliser les clé étrangére
+
+update bdd to entity : php bin/console doctrine:schema:update --force
+
+update entity to bdd : php bin/console doctrine:generate:entity 
+(pas encore utilisé donc est ce vraiment le cas. ??)
+
+
+
 
                    

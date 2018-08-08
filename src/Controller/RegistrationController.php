@@ -28,6 +28,12 @@ class RegistrationController extends Controller {
             //$user->addRole("ROLE_ADMIN");
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
+
+            //echo '<pre>';
+            //var_dump($entityManager);
+            //echo '</pre>';
+            //die("bonjour");
+
             $entityManager->persist($user);
             $entityManager->flush();
             // ... do any other work - like sending them an email, etc
