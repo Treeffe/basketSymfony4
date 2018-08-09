@@ -2,13 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: tcornado
- * Date: 08/08/2018
- * Time: 16:51
+ * Date: 09/08/2018
+ * Time: 15:29
  */
 
 namespace App\Entity;
-
-use App\Entity\User;
 
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
@@ -18,12 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * App\Entity\User
- *
- * @ORM\Table(name="Test2")
+ * @ORM\Table(name="Stadium")
  * @ORM\Entity()
  */
-class Test2
+class Stadium
 {
     /**
      * @ORM\Id
@@ -31,49 +27,44 @@ class Test2
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    function getId() {
+        return $this->id;
+    }
+    function setId($id) {
+        $this->id = $id;
+    }
 
     /**
      * @ORM\Column(type="string", length=30)
      */
     private $name;
-
-    /**
-     * @ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user", referencedColumnName="id")
-     **/
-    private $user;
-
-    /**
-     * @ManyToOne(targetEntity="Test")
-     * @ORM\JoinColumn(name="test", referencedColumnName="id")
-     **/
-    private $test;
-
     public function getName() {
         return $this->name;
     }
-
     function setName($name) {
         $this->name = $name;
     }
 
-    function getId() {
-        return $this->id;
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $adress;
+    public function getAdress() {
+        return $this->adress;
+    }
+    function setAdress($adress) {
+        $this->adress = $adress;
     }
 
-    function setId($id) {
-        $this->id = $id;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $place;
+    function getPLace() {
+        return $this->place;
     }
 
-    function getUser() {
-        return $this->user;
-    }
-
-    function setUser(User $user) {
-        $this->user = $user;
-    }
-
-    public function __construct() {
-
+    function setPlace($place) {
+        $this->place = $place;
     }
 }

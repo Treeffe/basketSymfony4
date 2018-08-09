@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block metadata %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+{% endblock metadata %}
+
+
+{% block content %}
+        {% block body %}
+            <h1>
+                BACK-END
+            </h1>
+            <div class="emplacementHome">
+                C'est la partie admin, la partie back-end du site est ici.
+            </div>
+            <div>
+                <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
+                    <a class="nav-link" href="{{path('addTeam')}}">Ajout Equipe</a>
+                </li>
+                <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
+                    <a class="nav-link" href="{{path('addPost')}}">Ajout POSTE</a>
+                </li>
+            </div>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+{% endblock %}

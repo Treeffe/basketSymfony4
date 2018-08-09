@@ -9,9 +9,16 @@
 
 {% block content %}
     {% block body %}
-        <div class="emplacementHome">
+        <h3 class="emplacementHome">
             LES EQUIPES
-        </div>
+        </h3>
+        {% if teams %}
+        {% for team in teams %}
+            {{ team.id }}
+        {% endfor %}
+        {% else %}
+            <div class="alert alert-warning">Aucune équipe trouvée.</div>
+        {% endif %}
     {% endblock %}
     {% block javascripts %}{% endblock %}
 {% endblock %}

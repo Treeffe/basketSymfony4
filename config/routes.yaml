@@ -10,3 +10,30 @@ app_lucky_number:
 
 logout:
     path: /logout
+
+teams:
+    path: /teams
+    controller: App\Controller\TeamController::ListTeamAction
+
+admin:
+    path: /admin
+    controller: App\Controller\Admin\HomepageController::adminIndexAction
+
+addTeam:
+    path: /admin/addTeam
+    controller: App\Controller\TeamController::addTeamAction
+
+addPost:
+    path: /admin/addPost
+    controller: App\Controller\Admin\PosteController::addPosteAction
+
+addTeamMember:
+    path: /member/addTeam
+    controller: App\Controller\TeamController::addTeamAction
+
+member:
+    path: /member
+    controller: App\Controller\Member\MemberController::memberIndexAction
+
+
+

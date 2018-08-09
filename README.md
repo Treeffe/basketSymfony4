@@ -8,7 +8,8 @@ ainsi que les fichiers du dossier db destiné à l'importation des dumb de la bd
 
 Enfin les commande suivante permettront un mapping entre le code et la bdd
 
-php bin/console doctrine:migration:diff ********* php bin/console doctrine:migration:migrate 
+sauvegarder la migration : php bin/console doctrine:migration:diff *********
+ php bin/console doctrine:migration:migrate 
 
 Ceci est un squelette d'une application et l'initiation à un framework en autodidactie 
 

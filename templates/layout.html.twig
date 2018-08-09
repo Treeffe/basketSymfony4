@@ -22,7 +22,7 @@
 {% block header %}
     <header id="header" class="bck1 border-bottom">
         <div class="container">
-            <h1>{% if title is defined %}{{title}}{% else %}Header{% endif %}</h1>
+            <h1>{% if title is defined %}{{title}}{% else %}En construction{% endif %}</h1>
         </div>
     </header>
 {% endblock %}
@@ -33,14 +33,20 @@
             <li class="nav-item {% if mainNavHome is defined %}active{% endif %}">
                 <a class="nav-link" href="{{path('index')}}">Accueil</a>
             </li>
+            <li class="nav-item {% if mainNavHome is defined %}active{% endif %}">
+                <a class="nav-link" href="{{path('teams')}}">Les équipes</a>
+            </li>
             {% if is_granted('ROLE_USER') %}
                 <li class="nav-item {% if mainNavMember is defined %}active{% endif %}">
-                    <a class="nav-link" href="{{path('index')}}">Espace membre</a>
+                    <a class="nav-link" href="{{path('member')}}">Espace membre</a>
                 </li>
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
-                    <a class="nav-link" href="{{path('admin_index')}}">Espace admin</a>
+                    <a class="nav-link" href="{{path('admin')}}">Espace admin</a>
+                </li>
+                <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
+                    <a class="nav-link" href="{{path('addTeam')}}">Ajout Equipe</a>
                 </li>
             {% endif %}
         </ul>
@@ -92,7 +98,7 @@
 {% block footer %}
     <footer id="footer" class="bck1 border-top">
         <div class="container">
-            <h4>Footer</h4>
+            <h4>PLUS TARD</h4>
         </div>
     </footer>
 {% endblock %}
