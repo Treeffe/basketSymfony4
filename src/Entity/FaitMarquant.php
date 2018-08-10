@@ -55,4 +55,16 @@ class FaitMarquant
     function setLibelle($libelle) {
         $this->libelle = $libelle;
     }
+
+    /**
+     * @ManyToOne(targetEntity="History")
+     * @ORM\JoinColumn(name="History", referencedColumnName="id")
+     **/
+    private $history;
+    function getHistory() {
+        return $this->history;
+    }
+    function setHistory(History $history) {
+        $this->history = $history;
+    }
 }

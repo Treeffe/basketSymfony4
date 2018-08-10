@@ -27,6 +27,33 @@ addPost:
     path: /admin/addPost
     controller: App\Controller\Admin\PosteController::addPosteAction
 
+addLegende:
+    path: /admin/addLegende
+    controller: App\Controller\Admin\JoueurController::addLegendeAction
+
+addBDDLegende:
+    path: /admin/BDDLegende
+    controller: App\Controller\Admin\JoueurController::addBDDLegendeAction
+
+addHistory:
+    path: /admin/addHistory
+    controller: App\Controller\Admin\HistoryController::addHistoryAction
+
+addStadium:
+    path: /admin/addStadium
+    controller: App\Controller\Admin\StadiumController::addStadiumAction
+
+addFait:
+    path: /admin/addFait
+    controller: App\Controller\Admin\FaitController::addFaitAction
+
+addBDDFait:
+    path: /admin/addBDDFait
+    controller: App\Controller\Admin\FaitController::addBDDFaitAction
+
+
+
+
 addTeamMember:
     path: /member/addTeam
     controller: App\Controller\TeamController::addTeamAction

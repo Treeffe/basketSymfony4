@@ -34,6 +34,16 @@ class History
         $this->id = $id;
     }
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $title;
+    function getTitle() {
+        return $this->title;
+    }
+    function setTitle($title) {
+        $this->title = $title;
+    }
 
     private $listFaitsMarquants;
     function getListFaitsMarquants() {

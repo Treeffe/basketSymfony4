@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div class="well" style="background-color: #94ABB3;">
+        <form class="form-signin form-horizontal" role="form" action="{{ path('addBDDLegende') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                    Fait:
+                    <texterrea type="text" name="libelle" class="form-control" required autofocus>
+                    </texterrea>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                position dans l'historique: <input type="integer" name="pos_resume" class="form-control">
+            </div>
+            <!-- formulaire History -->
+            {% if histories %}
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                        Post :
+                        <select class="form-control" name="historyId" size="1" >
+                            {% for history in histories %}
+                                <option value={{ history.id }}>{{ history.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            {% else %}
+                Aucune histoire trouvée : <input type="text" name="histories" class="form-control">
+            {% endif %}
+
+            <div class="form-group">
+                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span>Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

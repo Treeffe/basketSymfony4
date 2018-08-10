@@ -9,19 +9,35 @@
 
 {% block content %}
         {% block body %}
+            <div>
+                <nav id="main-nav" class="container navbar navbar-expand-lg navbar-light bg-light border rounded mb-3">
+                    <ul class="navbar-nav">
+                        <li class="sousMenu {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="" href="{{path('addTeam')}}">Ajout Equipe</a>
+                        </li>
+                        <li class="sousMenu {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="" href="{{path('addPost')}}">Ajout POSTE</a>
+                        </li>
+                        <li class="sousMenu {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="" href="{{path('addLegende')}}">Ajout Legende</a>
+                        </li>
+                        <li class="sousMenu {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="" href="{{path('addHistory')}}">Ajout History</a>
+                        </li>
+                        <li class="sousMenu {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="" href="{{path('addStadium')}}">Ajout Stade</a>
+                        </li>
+                        <li class="sousMenu {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="" href="{{path('addFait')}}">Ajout Fait</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <h1>
                 BACK-END
             </h1>
             <div class="emplacementHome">
                 C'est la partie admin, la partie back-end du site est ici.
-            </div>
-            <div>
-                <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
-                    <a class="nav-link" href="{{path('addTeam')}}">Ajout Equipe</a>
-                </li>
-                <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
-                    <a class="nav-link" href="{{path('addPost')}}">Ajout POSTE</a>
-                </li>
             </div>
         {% endblock %}
         {% block javascripts %}{% endblock %}

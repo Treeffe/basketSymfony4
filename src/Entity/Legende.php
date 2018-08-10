@@ -68,7 +68,7 @@ class Legende
     function getPost() {
         return $this->post;
     }
-    function setPost($post) {
+    function setPost(Post $post) {
         $this->post = $post;
     }
 
@@ -104,7 +104,7 @@ class Legende
     function getstat() {
         return $this->stat;
     }
-    function setStat($stat) {
+    function setStat(Stat $stat) {
         $this->stat = $stat;
     }
 
@@ -116,7 +116,8 @@ class Legende
         return $this->photo;
     }
     function setPhoto($photo) {
-        $this->photo = $photo;
+        //$this->photo = $photo;
+        $this->photo = "rien";
     }
 
     /**
@@ -138,7 +139,7 @@ class Legende
     function getHistory() {
         return $this->history;
     }
-    function setHistory($history) {
+    function setHistory(History $history) {
         $this->history = $history;
     }
 }
