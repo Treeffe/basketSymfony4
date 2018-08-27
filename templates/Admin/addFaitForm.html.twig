@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+    {% include 'Admin/layoutAdmin.html.twig' %}
     <div class="well" style="background-color: #94ABB3;">
         <form class="form-signin form-horizontal" role="form" action="{{ path('addBDDLegende') }}" method="post" enctype="multipart/form-data">
             <div class="form-group">

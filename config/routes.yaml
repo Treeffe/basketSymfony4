@@ -1,20 +1,24 @@
 # config/routes.yaml
 
+
+# Partie affichage
 index:
     path: /
     controller: App\Controller\DefaultController::indexAction
+
+logout:
+    path: /logout
 
 app_lucky_number:
     path: /lucky/number
     controller: App\Controller\DefaultController::number
 
-logout:
-    path: /logout
-
 teams:
     path: /teams
     controller: App\Controller\TeamController::ListTeamAction
 
+
+# Partie admin
 admin:
     path: /admin
     controller: App\Controller\Admin\HomepageController::adminIndexAction
@@ -52,12 +56,7 @@ addBDDFait:
     controller: App\Controller\Admin\FaitController::addBDDFaitAction
 
 
-
-
-addTeamMember:
-    path: /member/addTeam
-    controller: App\Controller\TeamController::addTeamAction
-
+# Partie Membre
 member:
     path: /member
     controller: App\Controller\Member\MemberController::memberIndexAction
