@@ -64,9 +64,7 @@ class Team
     }
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateCreation", type="datetime")
+     * @ORM\Column(type="string", length=30)
      */
     private $dateCreation;
     public function getDateCreation() {
@@ -127,8 +125,8 @@ class Team
     }
 
     /**
-     * @ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumn(name="team", referencedColumnName="id")
+     * @ManyToOne(targetEntity="History")
+     * @ORM\JoinColumn(name="history", referencedColumnName="id")
      **/
     private $history;
     public function getHistory() {
@@ -139,8 +137,21 @@ class Team
         $this->history = $history;
     }
 
-
     public function __construct() {
 
+    }
+
+
+    /**
+     * @ManyToOne(targetEntity="Conference")
+     * @ORM\JoinColumn(name="conference", referencedColumnName="id")
+     **/
+    private $conference;
+    public function getConference() {
+        return $this->conference;
+    }
+
+    function setConference($conference) {
+        $this->conference = $conference;
     }
 }

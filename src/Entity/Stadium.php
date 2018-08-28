@@ -67,4 +67,16 @@ class Stadium
     function setPlace($place) {
         $this->place = $place;
     }
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $annee;
+    function getAnnee() {
+        return $this->annee;
+    }
+
+    function setAnnee($annee) {
+        $this->annee = $annee;
+    }
 }

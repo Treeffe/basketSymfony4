@@ -1,0 +1,91 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    {% include 'Admin/layoutAdmin.html.twig' %}
+    <div class="parent">
+        <div class="enfant">
+            <h2>
+                Ajout d'une équipe
+            </h2>
+        </div>
+    </div>
+    <div class="well fondFormulaire">
+        <form class="form-signin form-horizontal" role="form" action="{{ path('addTeamBDD') }}" method="post" enctype="multipart/form-data">
+            <div class="formulaire">
+                <div class="formulaire_personne">
+                    <div class="form-group">
+                        <div class="">
+                            Nom équipe: <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="">
+                            Surnom: <input type="text" name="surname" class="form-control">
+                        </div>
+                        <div class="">
+                            Position année precedente: <input type="text" name="position" class="form-control">
+                        </div>
+                        <div class="">
+                            Localisation: <input type="text" name="localisation" class="form-control">
+                        </div>
+                        <div class="">
+                            Propriétaire : <input type="text" name="proprietaire" class="form-control">
+                        </div>
+                        <div class="">
+                            Date création: <input type="date" name="date" class="form-control">
+                        </div>
+                    </div>
+                    <!-- formulaire History -->
+                    {% if stadiums %}
+                        <div class="form-group">
+                            <div class="">
+                                Stadium :
+                                <select class="form-control" name="stadiumId" size="1" >
+                                    {% for stadium in stadiums %}
+                                        <option value={{ stadium.id }}>{{ stadium.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    {% else %}
+                        Aucun stade trouvé : <input type="text" name="stadium" class="form-control">
+                    {% endif %}
+
+                    <!-- formulaire History -->
+                    {% if histories %}
+                        <div class="form-group">
+                            <div class="">
+                                Histoire :
+                                <select class="form-control" name="historyId" size="1" >
+                                    {% for history in histories %}
+                                        <option value={{ history.id }}>{{ history.title }}</option>
+                                        <input type=hidden name="history" value={{ history.title }}>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    {% else %}
+                        Aucune histoire trouvée : <input type="text" name="histories" class="form-control">
+                    {% endif %}
+
+                    <!-- formulaire Conference-->
+                    {% if conferences %}
+                        <div class="form-group">
+                            <div class="">
+                                Conference :
+                                <select class="form-control" name="conferenceId" size="1" >
+                                    {% for conference in conferences %}
+                                        <option value={{ conference.id }}>{{ conference.libelleConference }} ({{ conference.pointCardinal }})</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    {% else %}
+                        Aucune conférence trouvée : <input type="text" name="histories" class="form-control">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="formulaire_submit">
+                <button type="submit" class="btn btn-default btn-primary formulaire_submit"><span class="glyphicon"></span>Ajouter</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

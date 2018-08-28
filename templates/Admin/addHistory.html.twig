@@ -1,4 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block body %}
-    {{form(form)}}
+    {% include 'Admin/layoutAdmin.html.twig' %}
+    <div class="parent">
+        <div class="enfant">
+            <h2>
+                Ajout d'une Histoire
+            </h2>
+        </div>
+    </div>
+    <div class="well fondFormulaire">
+        {{form(form)}}
+    </div>
 {% endblock %}

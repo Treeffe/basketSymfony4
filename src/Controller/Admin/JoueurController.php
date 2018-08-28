@@ -35,7 +35,7 @@ class JoueurController extends Controller
             ->getRepository(History::class)
             ->findAll();
 
-        return $this->render('Joueur/addLegendeForm.html.twig', array('posts' => $posts, 'histories' => $histories ));
+        return $this->render('Admin/addLegendeForm.html.twig', array('posts' => $posts, 'histories' => $histories ));
     }
 
     public function addBDDLegendeAction(Request $request) {

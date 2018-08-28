@@ -12,13 +12,40 @@
         <h3 class="emplacementHome">
             LES EQUIPES
         </h3>
-        {% if teams %}
-        {% for team in teams %}
-            {{ team.id }}
-        {% endfor %}
-        {% else %}
-            <div class="alert alert-warning">Aucune équipe trouvée.</div>
-        {% endif %}
+        <div class="formulaire emplacementHome">
+            <div class="formulaire_personne">
+                <h5>
+                    les équipes de l'Est
+                </h5>
+                {% if teamsEast %}
+                {% for team in teamsEast %}
+                    <div class="emplacementHome">
+                        mf;v,f,gv
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <div class="emplacementHome">
+                        <div class="alert alert-warning">Aucune équipe de l'est trouvée.</div>
+                    </div>
+                {% endif %}
+                </div>
+            <div class="formulaire_personne">
+                <h5>
+                    les équipes de l'Ouest
+                </h5>
+                {% if teamWest %}
+                    {% for team in teamWest %}
+                        <div class="emplacementHome">
+                            mfdl,gvmvm
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="emplacementHome">
+                        <div class="alert alert-warning">Aucune équipe de l'ouest trouvée.</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     {% endblock %}
     {% block javascripts %}{% endblock %}
 {% endblock %}

@@ -27,6 +27,10 @@ addTeam:
     path: /admin/addTeam
     controller: App\Controller\TeamController::addTeamAction
 
+addTeamBDD:
+    path: /admin/addTeamBDD
+    controller: App\Controller\TeamController::addBDDTeamAction
+
 addPost:
     path: /admin/addPost
     controller: App\Controller\Admin\PosteController::addPosteAction
@@ -54,6 +58,10 @@ addFait:
 addBDDFait:
     path: /admin/addBDDFait
     controller: App\Controller\Admin\FaitController::addBDDFaitAction
+
+addConference:
+    path: /admin/addConference
+    controller: App\Controller\Admin\ConferenceController::addConferenceAction
 
 
 # Partie Membre
