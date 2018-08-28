@@ -30,6 +30,16 @@ footer#footer{margin-top: 20px;padding: 10px;}
     margin: 2%;
 }
 
+.sousMenu:hover
+{
+    background-color: #e9e8f5;
+}
+
+.menu:hover
+{
+    background-color: #e9e8f5;
+}
+
 .formulaire
 {
     display: inline-flex;

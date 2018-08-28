@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TeamController extends Controller
 {
-    public function ListTeamAction()
+    public function ListTeamConfAction()
     {
         $teams = $this->getDoctrine()
             ->getRepository(Team::class)
@@ -30,7 +30,7 @@ class TeamController extends Controller
 
         foreach ($teams as $team)
         {
-            if($team->getConference()->getPointCardinal() == "est")
+            if($team->getConference()->getPointCardinal() == "Est")
             {
                 $teamsEast[] = $team;
             }

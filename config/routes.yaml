@@ -15,7 +15,7 @@ app_lucky_number:
 
 teams:
     path: /teams
-    controller: App\Controller\TeamController::ListTeamAction
+    controller: App\Controller\TeamController::ListTeamConfAction
 
 
 # Partie admin
@@ -63,6 +63,9 @@ addConference:
     path: /admin/addConference
     controller: App\Controller\Admin\ConferenceController::addConferenceAction
 
+addConferenceBDD:
+    path: /admin/addConferenceBDD
+    controller: App\Controller\Admin\ConferenceController::addBDDConferenceAction
 
 # Partie Membre
 member:

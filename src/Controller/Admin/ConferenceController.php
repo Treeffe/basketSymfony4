@@ -10,8 +10,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Conference;
 
-use App\Form\addConferenceForm;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,21 +17,32 @@ use Symfony\Component\HttpFoundation\Request;
 class ConferenceController extends Controller
 {
     public function addConferenceAction(Request $request) {
-        // 1) build the form
+        //récuperation data
+        return $this->render('Admin/addConference.html.twig');
+    }
+
+    public function addBDDConferenceAction(Request $request) {
+        //instanciation Objet
         $conference = new Conference();
-        $form = $this->createForm(addConferenceForm::class, $conference);
-        // 2) handle the submit (will only happen on POST)
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // 4) save the Team!
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($conference);
-            $entityManager->flush();
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
-            $this->addFlash('success', 'Votre conference a été enregistrée.');
-            //return $this->redirectToRoute('login');
-        }
-        return $this->render('Admin/addConference.html.twig', ['form' => $form->createView(), 'mainNavRegistration' => true, 'title' => 'Ajout Poste']);
+
+        //Récuperation + objet fait
+        $point_cardinal = $_POST['point_cardinal'];
+        $name = $_POST['name'];
+
+        //maj objet
+        $conference->setPointCardinal($point_cardinal);
+        $conference->setLibelleConference($name);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($conference);
+        $entityManager->flush();
+        $this->addFlash('success', 'Votre conference a bien été enregistrée.');
+
+        //renvoyer sur la liste
+        return $this->forward($this->routeToControllerName('addConference'));
+    }
+
+    private function routeToControllerName($routename) {
+        $routes = $this->get('router')->getRouteCollection();
+        return $routes->get($routename)->getDefaults()['_controller'];
     }
 }
