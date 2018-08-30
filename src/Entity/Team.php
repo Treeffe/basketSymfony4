@@ -154,4 +154,16 @@ class Team
     function setConference($conference) {
         $this->conference = $conference;
     }
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $logo;
+    public function getLogo() {
+        return $this->conference;
+    }
+
+    function setLogo($logo) {
+        $this->logo = $logo;
+    }
 }

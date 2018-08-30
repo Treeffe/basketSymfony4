@@ -17,6 +17,11 @@ teams:
     path: /teams
     controller: App\Controller\TeamController::ListTeamConfAction
 
+team:
+    path: /teams/team/{id}
+    controller: App\Controller\TeamController::findTeam
+
+
 
 # Partie admin
 admin:

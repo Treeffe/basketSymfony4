@@ -28,11 +28,17 @@ footer#footer{margin-top: 20px;padding: 10px;}
 .sousMenu
 {
     margin: 2%;
+    text-align: center;
 }
 
 .sousMenu:hover
 {
     background-color: #e9e8f5;
+}
+
+.menu
+{
+    text-align: center;
 }
 
 .menu:hover
@@ -80,4 +86,17 @@ footer#footer{margin-top: 20px;padding: 10px;}
 
 .fondFormulaire{
     background-color: #94ABB3;
+}
+
+.groupe{
+    border: thick black solid;
+    overflow: auto;
+}
+
+.gras{
+    font-weight:bold;
+}
+
+.ecriture{
+    color: lightslategrey;
 }

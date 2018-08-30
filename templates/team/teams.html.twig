@@ -33,10 +33,12 @@
                 <h5>
                     les équipes de l'Ouest
                 </h5>
-                {% if teamWest %}
-                    {% for team in teamWest %}
+                {% if teamsWest %}
+                    {% for team in teamsWest %}
                         <div class="emplacementHome">
-                            mfdl,gvmvm
+                            <a href="/teams/team/{{ team.id }}">
+                                {{ team.surnom }} {{ team.name }}
+                            </a>
                         </div>
                     {% endfor %}
                 {% else %}

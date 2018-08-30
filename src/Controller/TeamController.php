@@ -40,7 +40,7 @@ class TeamController extends Controller
             }
         }
 
-        return $this->render('team/teams.html.twig', array('teamsEast' => $teamsWest, 'teamWest' => $teamsEast ));
+        return $this->render('team/teams.html.twig', array('teamsEast' => $teamsEast, 'teamsWest' => $teamsWest ));
     }
 
     public function addTeamAction(Request $request) {
@@ -101,6 +101,14 @@ class TeamController extends Controller
 
         }
 
+        $uploaddir = '/uploads/';
+        $uploadfile = $uploaddir . basename($_FILES['logo']['name']);
+        if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploadfile)) {
+            $team->setLogo($_FILES['logo']['name']);
+        } else {
+            $team->setLogo('uploads/nbaIcone.jpg');
+        }
+
         //maj objet
         $team->setName($name);
         $team->setSurnom($surname);
@@ -120,6 +128,16 @@ class TeamController extends Controller
 
         //renvoyer sur la liste
         return $this->forward($this->routeToControllerName('teams'));
+    }
+
+    public function findTeam(Request $request, $id) {
+        //récuperation data
+        $team = $this->getDoctrine()
+            ->getRepository(Team::class)
+            ->find($id);
+
+        return $this->render('team/team.html.twig',
+            array('team' => $team ));
     }
 
     private function routeToControllerName($routename) {
