@@ -21,6 +21,19 @@ update bdd to entity : php bin/console doctrine:schema:update --force
 update entity to bdd : php bin/console doctrine:generate:entity 
 (pas encore utilisé donc est ce vraiment le cas. ??)
 
+Initialiser apache : php -S 127.0.0.1:8000 -t public/
+
+via xamp htdocs windows: (httpd-vhosts.conf)
+virtualhost : 
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/basketSymfony4/public"
+    ServerName basketSymfony.local
+</VirtualHost>
+
+C:\Windows\System32\drivers\etc --- hosts
+127.0.0.1 basketSymfony.local
+
+
 
 
 
