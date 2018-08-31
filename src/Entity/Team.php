@@ -112,6 +112,18 @@ class Team
     }
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $logo;
+    public function getLogo() {
+        return $this->logo;
+    }
+
+    function setLogo(string $logo) {
+        $this->logo = $logo;
+    }
+
+    /**
      * @ManyToOne(targetEntity="Stadium")
      * @ORM\JoinColumn(name="stadium", referencedColumnName="id")
      **/
@@ -120,7 +132,7 @@ class Team
         return $this->stadium;
     }
 
-    function setStadium($stadium) {
+    function setStadium(Stadium $stadium) {
         $this->stadium = $stadium;
     }
 
@@ -133,7 +145,7 @@ class Team
         return $this->history;
     }
 
-    function setHistory($history) {
+    function setHistory(History $history) {
         $this->history = $history;
     }
 
@@ -151,19 +163,7 @@ class Team
         return $this->conference;
     }
 
-    function setConference($conference) {
+    function setConference(Conference $conference) {
         $this->conference = $conference;
-    }
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $logo;
-    public function getLogo() {
-        return $this->conference;
-    }
-
-    function setLogo($logo) {
-        $this->logo = $logo;
     }
 }

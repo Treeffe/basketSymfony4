@@ -78,6 +78,7 @@ class TeamController extends Controller
             $history = $this->getDoctrine()
                 ->getRepository(History::class)
                 ->find($_POST['historyId']);
+            $team->setHistory($history);
         }else{
 
         }
@@ -86,6 +87,7 @@ class TeamController extends Controller
             $stadium = $this->getDoctrine()
                 ->getRepository(Stadium::class)
                 ->find($_POST['stadiumId']);
+            $team->setStadium($stadium);
         }
         else{
 
@@ -96,14 +98,22 @@ class TeamController extends Controller
             $conference = $this->getDoctrine()
                 ->getRepository(Conference::class)
                 ->find($_POST['conferenceId']);
+            $team->setConference($conference);
         }
         else{
 
         }
 
-        $uploaddir = '/uploads/';
+        $uploaddir = '/web/uploads/';
         $uploadfile = $uploaddir . basename($_FILES['logo']['name']);
-        if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploadfile)) {
+
+       /*echo $_FILES['logo']['tmp_name'];
+        echo "<br />";
+        echo getcwd();
+        echo "<br />";
+        die($uploadfile);*/
+
+        if (move_uploaded_file($_FILES['logo']['tmp_name'], getcwd().$uploadfile)) {
             $team->setLogo($_FILES['logo']['name']);
         } else {
             $team->setLogo('uploads/nbaIcone.jpg');
@@ -115,16 +125,13 @@ class TeamController extends Controller
         $team->setPositionanneePrec($position);
         $team->setDateCreation($date);
         $team->setLocation($localisation);
-        $team->setHistory($history);
-        $team->setConference($conference);
         $team->setProprietaire($proprietaire);
-        $team->setStadium($stadium);
 
         $entityManager = $this->getDoctrine()->getManager();
 
         $entityManager->persist($team);
         $entityManager->flush();
-        $this->addFlash('success', 'Votre compte à bien été enregistré.');
+        $this->addFlash('success', 'Votre équipe à bien été enregistré.');
 
         //renvoyer sur la liste
         return $this->forward($this->routeToControllerName('teams'));
@@ -138,6 +145,7 @@ class TeamController extends Controller
 
         return $this->render('team/team.html.twig',
             array('team' => $team ));
+
     }
 
     private function routeToControllerName($routename) {

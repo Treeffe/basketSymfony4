@@ -12,45 +12,51 @@
         {% if team %}
             <div class="emplacementHome ecriture">
                 <h3 class="sousMenu" style="text-transform: uppercase;">
-                    <b>{{ team.surnom }} {{ team.name }}</b>
+                    <b>{{ team.surnom }} {{ team.name }} </b>
                 </h3>
-                <div class="logo">
-                    <img src="/uploads/nbaIcone.jpg" alt="{{ team.surnom }} {{ team.name }}">
-                </div>
-                <div class="">
-                    <p>Localisation : <b>{{ team.location }}</b></p>
-                    <p>position année précédente : <b>{{ team.positionanneePrec }}</b></p>
-                    <p>propriétaire du club : <b>{{ team.proprietaire }}</b></p>
-                    <p>création du club : <b>{{ team.dateCreation }}</b></p>
-                </div>
-                <div>
-                    <h4 style="text-transform: uppercase;">
-                        <b>Stadium</b>
-                    </h4>
-                    <div>
-                        <p>nom : <b>{{ team.stadium.name }}</b></p>
-                        <p>adresse du stade : <b>{{ team.stadium.adress }}</b></p>
-                        <p>nombre de place maximum : <b>{{ team.stadium.place }}</b></p>
-                        <p>annee de création : <b>{{ team.stadium.annee }}</b></p>
+                <div class="formulaire">
+                    <div class="affichageTeam_image">
+                        <div class="">
+                            <img src="/web/uploads/{{ team.logo }}" alt="{{ team.surnom }} {{ team.name }}" class="logo">
+                        </div>
+                    </div>
+                    <div class="affichageTeam_team">
+                        <p>Localisation : <b>{{ team.location }}</b></p>
+                        <p>position année précédente : <b>{{ team.positionanneePrec }}</b></p>
+                        <p>propriétaire du club : <b>{{ team.proprietaire }}</b></p>
+                        <p>création du club : <b>{{ team.dateCreation }}</b></p>
                     </div>
                 </div>
-                <div>
-                    <h4 style="text-transform: uppercase;">
-                        <b>Conference</b>
-                    </h4>
+                <div class="affichageTeam_autres">
                     <div>
-                        <p>conférence : <b>{{ team.conference.pointCardinal }}</b></p>
-                        <p>nom complet conférence : <b>{{ team.conference.libelleConference }} ( {{ team.conference.pointCardinal }} )</b></p>
+                        <h4 style="text-transform: uppercase;">
+                            <b>Stadium</b>
+                        </h4>
+                        <div>
+                            <p>nom : <b>{{ team.stadium.name }}</b></p>
+                            <p>adresse du stade : <b>{{ team.stadium.adress }}</b></p>
+                            <p>nombre de place maximum : <b>{{ team.stadium.place }}</b></p>
+                            <p>annee de création : <b>{{ team.stadium.annee }}</b></p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <h4 style="text-transform: uppercase;">
-                        <b>{{ team.history.title }}</b>
-                    </h4>
                     <div>
-                        {% for i in 0..10 %}
-                            <p>Fait marquant <b>{{ i }}</b></p>
-                        {% endfor %}
+                        <h4 style="text-transform: uppercase;">
+                            <b>Conference</b>
+                        </h4>
+                        <div>
+                            <p>conférence : <b>{{ team.conference.pointCardinal }}</b></p>
+                            <p>nom complet conférence : <b>{{ team.conference.libelleConference }} ( {{ team.conference.pointCardinal }} )</b></p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="text-transform: uppercase;">
+                            <b>{{ team.history.title }}</b>
+                        </h4>
+                        <div>
+                            {% for i in 0..10 %}
+                                <p>Fait marquant <b>{{ i }}</b></p>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>

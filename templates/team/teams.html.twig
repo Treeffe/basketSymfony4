@@ -20,7 +20,9 @@
                 {% if teamsEast %}
                 {% for team in teamsEast %}
                     <div class="emplacementHome">
-                        mf;v,f,gv
+                        <a href="/teams/team/{{ team.id }}">
+                            {{ team.surnom }} {{ team.name }}
+                        </a>
                     </div>
                 {% endfor %}
                 {% else %}

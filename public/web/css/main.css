@@ -100,3 +100,23 @@ footer#footer{margin-top: 20px;padding: 10px;}
 .ecriture{
     color: lightslategrey;
 }
+
+.logo{
+    width: 10rem;
+    height: 7rem;
+}
+
+.affichageTeam_image
+{
+    padding-top: 2em;
+}
+
+.affichageTeam_team
+{
+    padding: 1em;
+}
+
+.affichageTeam_autres
+{
+    padding-left: 11em;
+}
