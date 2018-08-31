@@ -10,8 +10,9 @@
 {% block content %}
     {% block body %}
         {% if team %}
+
             <div class="emplacementHome ecriture">
-                <h3 class="sousMenu" style="text-transform: uppercase;">
+                <h3 class="sousMenu text-uppercase">
                     <b>{{ team.surnom }} {{ team.name }} </b>
                 </h3>
                 <div class="formulaire">
@@ -21,8 +22,12 @@
                         </div>
                     </div>
                     <div class="affichageTeam_team">
+                        <h4 style="text-transform: uppercase;">
+                            <b>Description équipe</b>
+                        </h4>
                         <p>Localisation : <b>{{ team.location }}</b></p>
                         <p>position année précédente : <b>{{ team.positionanneePrec }}</b></p>
+                        <p>Entraineur du club : <b>{{ team.entraineur }}</b></p>
                         <p>propriétaire du club : <b>{{ team.proprietaire }}</b></p>
                         <p>création du club : <b>{{ team.dateCreation }}</b></p>
                     </div>
@@ -60,6 +65,54 @@
                     </div>
                 </div>
             </div>
+
+            <!--
+            <div style="margin-top: 5%" class="jumbotron">
+                <div class="col-sm-6 col-md-4">
+                    <h2>{{ team.surnom }} {{ team.name }}</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-md-2">
+                        <div class="">
+                            <img src="/web/uploads/{{ team.logo }}" alt="{{ team.surnom }} {{ team.name }}" class="logo">
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-10" >
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Description Equipe</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Stade</a></li>
+                            <li><a data-toggle="tab" href="#menu2">Conference</a></li>
+                            <li><a data-toggle="tab" href="#menu3">Histoire</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <p>Localisation : <b>{{ team.location }}</b></p>
+                                <p>position année précédente : <b>{{ team.positionanneePrec }}</b></p>
+                                <p>propriétaire du club : <b>{{ team.proprietaire }}</b></p>
+                                <p>création du club : <b>{{ team.dateCreation }}</b></p>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                                <p>conférence : <b>{{ team.conference.pointCardinal }}</b></p>
+                                <p>nom complet conférence : <b>{{ team.conference.libelleConference }} ( {{ team.conference.pointCardinal }} )</b></p>
+                            </div>
+                            <div id="menu1" class="tab-pane fade">
+                                <p>nom : <b>{{ team.stadium.name }}</b></p>
+                                <p>adresse du stade : <b>{{ team.stadium.adress }}</b></p>
+                                <p>nombre de place maximum : <b>{{ team.stadium.place }}</b></p>
+                                <p>annee de création : <b>{{ team.stadium.annee }}</b></p>
+                            </div>
+                            <div id="menu3" class="tab-pane fade">
+                                <h3>{{ team.history.title }}</h3>
+                                {% for i in 0..10 %}
+                                    <p>Fait marquant <b>{{ i }}</b></p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
         {% else %}
             <div class="emplacementHome">
                 <div class="alert alert-warning"><b>Aucune équipe trouvée</b>.</div>

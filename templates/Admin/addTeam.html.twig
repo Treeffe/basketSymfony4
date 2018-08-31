@@ -30,8 +30,12 @@
                             Propriétaire : <input type="text" name="proprietaire" class="form-control">
                         </div>
                         <div class="">
+                            Entraineur : <input type="text" name="entraineur" class="form-control">
+                        </div>
+                        <div class="">
                             photo : <input type="file" name="logo">
                         </div>
+
                     </div>
                 </div>
                 <div class="formulaire_personne">
@@ -64,7 +68,6 @@
                                 <select class="form-control" name="historyId" size="1" >
                                     {% for history in histories %}
                                         <option value={{ history.id }}>{{ history.title }}</option>
-                                        <input type=hidden name="history" value={{ history.title }}>
                                     {% endfor %}
                                 </select>
                             </div>

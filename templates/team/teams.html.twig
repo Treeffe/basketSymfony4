@@ -19,9 +19,9 @@
                 </h5>
                 {% if teamsEast %}
                 {% for team in teamsEast %}
-                    <div class="emplacementHome">
+                    <div class="emplacementHome text-uppercase">
                         <a href="/teams/team/{{ team.id }}">
-                            {{ team.surnom }} {{ team.name }}
+                            {{ team.surnom }} {{ team.name }} ( {{ team.conference.libelleConference }} )
                         </a>
                     </div>
                 {% endfor %}
@@ -37,9 +37,9 @@
                 </h5>
                 {% if teamsWest %}
                     {% for team in teamsWest %}
-                        <div class="emplacementHome">
+                        <div class="emplacementHome text-uppercase">
                             <a href="/teams/team/{{ team.id }}">
-                                {{ team.surnom }} {{ team.name }}
+                                {{ team.surnom }} {{ team.name }} ( {{ team.conference.libelleConference }} )
                             </a>
                         </div>
                     {% endfor %}

@@ -124,6 +124,18 @@ class Team
     }
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $entraineur;
+    public function getEntraineur() {
+        return $this->entraineur;
+    }
+
+    function setEntraineur(string $entraineur) {
+        $this->entraineur = $entraineur;
+    }
+
+    /**
      * @ManyToOne(targetEntity="Stadium")
      * @ORM\JoinColumn(name="stadium", referencedColumnName="id")
      **/

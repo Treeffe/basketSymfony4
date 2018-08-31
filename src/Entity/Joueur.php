@@ -2,15 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: tcornado
- * Date: 09/08/2018
- * Time: 15:20
+ * Date: 31/08/2018
+ * Time: 17:05
  */
 
 namespace App\Entity;
 
+
+use App\Entity\Stadium;
 use App\Entity\History;
-use App\Entity\Post;
-use App\Entity\Stat;
 
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
@@ -20,10 +20,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Table(name="Legende")
+ * @ORM\Table(name="Joueur")
  * @ORM\Entity()
  */
-class Legende
+class Joueur
 {
     /**
      * @ORM\Id
@@ -60,17 +60,7 @@ class Legende
         $this->lastname = $lastname;
     }
 
-    /**
-     * @ManyToOne(targetEntity="Post")
-     * @ORM\JoinColumn(name="Post", referencedColumnName="id")
-     **/
-    private $post;
-    function getPost() {
-        return $this->post;
-    }
-    function setPost(Post $post) {
-        $this->post = $post;
-    }
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -97,18 +87,6 @@ class Legende
     }
 
     /**
-     * @ManyToOne(targetEntity="Stat")
-     * @ORM\JoinColumn(name="Stat", referencedColumnName="id")
-     **/
-    private $stat;
-    function getstat() {
-        return $this->stat;
-    }
-    function setStat(Stat $stat) {
-        $this->stat = $stat;
-    }
-
-    /**
      * @ORM\Column(type="string", length=30)
      */
     private $photo;
@@ -132,18 +110,6 @@ class Legende
     }
 
     /**
-     * @ManyToOne(targetEntity="History")
-     * @ORM\JoinColumn(name="History", referencedColumnName="id")
-     **/
-    private $history;
-    function getHistory() {
-        return $this->history;
-    }
-    function setHistory(History $history) {
-        $this->history = $history;
-    }
-
-    /**
      * @ORM\Column(type="decimal" , precision=5, scale=2)
      */
     private $taille;
@@ -152,5 +118,41 @@ class Legende
     }
     function setTaille($taille) {
         $this->contre = $taille;
+    }
+
+    /**
+     * @ManyToOne(targetEntity="Stat")
+     * @ORM\JoinColumn(name="Stat", referencedColumnName="id")
+     **/
+    private $stat;
+    function getstat() {
+        return $this->stat;
+    }
+    function setStat(Stat $stat) {
+        $this->stat = $stat;
+    }
+
+    /**
+     * @ManyToOne(targetEntity="Post")
+     * @ORM\JoinColumn(name="Post", referencedColumnName="id")
+     **/
+    private $post;
+    function getPost() {
+        return $this->post;
+    }
+    function setPost(Post $post) {
+        $this->post = $post;
+    }
+
+    /**
+     * @ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumn(name="Team", referencedColumnName="id")
+     **/
+    private $team;
+    function getTeam() {
+        return $this->team;
+    }
+    function setTeam(Team $team) {
+        $this->team = $team;
     }
 }

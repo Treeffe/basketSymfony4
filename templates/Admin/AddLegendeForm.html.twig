@@ -25,9 +25,10 @@
                         </div>
                         <div class="">
                             bio :
-                            <textarea type="text" name="bio"  class="form-control">
-
-                            </textarea>
+                            <textarea type="text" name="bio"  class="form-control"></textarea>
+                        </div>
+                        <div class="">
+                            taille: <input type="number" name="taille" step="0.1" class="form-control">
                         </div>
                     </div>
                     <!-- formulaire Post -->
@@ -54,7 +55,6 @@
                                 <select class="form-control" name="historyId" size="1" >
                                     {% for history in histories %}
                                         <option value={{ history.id }}>{{ history.title }}</option>
-                                        <input type=hidden name="history" value={{ history.title }}>
                                     {% endfor %}
                                 </select>
                             </div>

@@ -72,6 +72,7 @@ class TeamController extends Controller
         $date = $_POST['date'];
         $localisation = $_POST['localisation'];
         $proprietaire = $_POST['proprietaire'];
+        $entraineur = $_POST['entraineur'];
 
         //récupération donnée
         if(isset($_POST['historyId'])) {
@@ -126,6 +127,7 @@ class TeamController extends Controller
         $team->setDateCreation($date);
         $team->setLocation($localisation);
         $team->setProprietaire($proprietaire);
+        $team->setEntraineur($entraineur);
 
         $entityManager = $this->getDoctrine()->getManager();
 
