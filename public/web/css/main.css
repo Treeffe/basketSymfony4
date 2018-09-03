@@ -160,3 +160,7 @@ footer#footer{margin-top: 20px;padding: 10px;}
         font-size: 63px;
     }
 }
+
+.centrerText{
+    text-align: center
+}

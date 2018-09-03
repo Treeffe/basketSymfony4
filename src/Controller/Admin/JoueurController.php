@@ -11,6 +11,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\History;
 use App\Entity\Joueur;
+use App\Entity\Legende;
 use App\Entity\Post;
 use App\Entity\Stat;
 use App\Entity\Team;
@@ -36,7 +37,12 @@ class JoueurController extends Controller
             ->getRepository(History::class)
             ->findAll();
 
-        return $this->render('Admin/addLegendeForm.html.twig', array('posts' => $posts, 'histories' => $histories ));
+        $teams = $this->getDoctrine()
+            ->getRepository(Team::class)
+            ->findAll();
+
+        return $this->render('Admin/addLegendeForm.html.twig',
+            array('posts' => $posts, 'histories' => $histories, 'teams' => $teams ));
     }
 
     public function addBDDLegendeAction(Request $request) {
@@ -52,10 +58,8 @@ class JoueurController extends Controller
         $bio = $_POST['bio'];
         $taille = $_POST['taille'];
 
-        $historyId = $_POST['historyId'];
-        $history = $_POST['history'];
+        $teamId = $_POST['teamId'];
         $postId = $_POST['postId'];
-        $post = $_POST['post'];
 
         $point = $_POST['point'];
         $contre = $_POST['contre'];
@@ -64,14 +68,31 @@ class JoueurController extends Controller
         $rebond = $_POST['rebond'];
         $passe = $_POST['passe'];
 
+        $team = $this->getDoctrine()
+            ->getRepository(Team::class)
+            ->find($teamId);
+
+        $post = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->find($postId);
+
         $legende->setName($name);
         $legende->setLastname($lastname);
         $legende->setNumeroMaillot($numero);
         $legende->setDateNaissance($date);
+        $legende->setTeam($team);
+        $legende->setDateNaissance($date);
         $legende->setTaille($taille);
         $legende->setBio($bio);
         $legende->setPost($post);
-        $legende->setHistory($history);
+
+        $uploaddir = '/web/uploads/';
+        $uploadfile = $uploaddir . basename($_FILES['logo']['name']);
+        if (move_uploaded_file($_FILES['logo']['tmp_name'], getcwd().$uploadfile)) {
+            $legende->setPhoto($_FILES['logo']['name']);
+        } else {
+            $legende->setPhoto('uploads/nbaIcone.jpg');
+        }
 
         $stat->setContre($contre);
         $stat->setEssai($essai);
@@ -84,19 +105,21 @@ class JoueurController extends Controller
 
         //Mise en base
         $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($stat);
 
         //echo '<pre>';
         //var_dump($entityManager);
         //echo '</pre>';
         //die("bonjour");
 
+        $legende->setStat($stat);
         $entityManager->persist($legende);
         $entityManager->flush();
         // ... do any other work - like sending them an email, etc
         // maybe set a "flash" success message for the user
-        $this->addFlash('success', 'Votre légende à bien été enregistré.');
+        $this->addFlash('success', 'Votre joueur à bien été enregistré.');
 
-        return addLegendeAction($request);
+        return $this->forward($this->routeToControllerName('addLegende'));
     }
 
     public function addJoueurAction(Request $request) {
@@ -118,8 +141,6 @@ class JoueurController extends Controller
         $joueur = new Joueur();
 
         $date = $_POST['dateNaissance'];
-        $dateBdd =\DateTime::createFromFormat('j-M-Y', '15-Feb-2009');
-        
 
         //Récuperation + objet fait
         $name = $_POST['name'];
@@ -152,7 +173,7 @@ class JoueurController extends Controller
         $joueur->setName($name);
         $joueur->setLastname($lastname);
         $joueur->setNumeroMaillot($numero);
-        $joueur->setDateNaissance($dateBdd);
+        $joueur->setDateNaissance($date);
         $joueur->setTaille($taille);
         $joueur->setBio($bio);
         $joueur->setPost($poste);
@@ -165,7 +186,13 @@ class JoueurController extends Controller
         $stat->setPoint($point);
         $stat->setRebond($rebond);
 
-
+        $uploaddir = '/web/uploads/';
+        $uploadfile = $uploaddir . basename($_FILES['logo']['name']);
+        if (move_uploaded_file($_FILES['logo']['tmp_name'], getcwd().$uploadfile)) {
+            $joueur->setPhoto($_FILES['logo']['name']);
+        } else {
+            $joueur->setPhoto('uploads/nbaIcone.jpg');
+        }
 
         //Mise en base
         $entityManager = $this->getDoctrine()->getManager();

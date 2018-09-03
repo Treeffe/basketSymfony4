@@ -7,10 +7,13 @@
  */
 
 namespace App\Controller;
+use App\Entity\Joueur;
 use App\Entity\Team;
 use App\Entity\History;
 use App\Entity\Stadium;
 use App\Entity\Conference;
+use App\Entity\FaitMarquant;
+use App\Entity\Legende;
 
 use App\Form\addTeamForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -145,8 +148,27 @@ class TeamController extends Controller
             ->getRepository(Team::class)
             ->find($id);
 
+        $faits =$this->getDoctrine()
+            ->getRepository(FaitMarquant::class)
+            ->findBy(
+                ['history' => $id]
+            );
+
+        $effectif =$this->getDoctrine()
+            ->getRepository(Joueur::class)
+            ->findBy(
+                ['team' => $id]
+            );
+
+
+        $hallOfFame =$this->getDoctrine()
+            ->getRepository(Legende::class)
+            ->findBy(
+                ['team' => $id]
+            );
+
         return $this->render('team/team.html.twig',
-            array('team' => $team ));
+            array('team' => $team, 'faits' => $faits, 'effectif' => $effectif, 'hallOfFame' => $hallOfFame));
 
     }
 

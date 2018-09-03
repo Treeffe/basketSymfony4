@@ -83,7 +83,8 @@ class Joueur
         return $this->dateNaissance;
     }
     function setDateNaissance($dateNaissance) {
-        $this->dateNaissance = $dateNaissance;
+        $newformat =new \DateTime($dateNaissance);
+        $this->dateNaissance = $newformat;
     }
 
     /**
@@ -93,9 +94,9 @@ class Joueur
     function getPhoto() {
         return $this->photo;
     }
+
     function setPhoto($photo) {
-        //$this->photo = $photo;
-        $this->photo = "rien";
+        $this->photo = $photo;
     }
 
     /**
@@ -117,7 +118,7 @@ class Joueur
         return $this->taille;
     }
     function setTaille($taille) {
-        $this->contre = $taille;
+        $this->taille = $taille;
     }
 
     /**

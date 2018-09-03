@@ -21,8 +21,6 @@ team:
     path: /teams/team/{id}
     controller: App\Controller\TeamController::findTeam
 
-
-
 # Partie admin
 admin:
     path: /admin
@@ -79,6 +77,8 @@ addJoueur:
 addJoueurBDD:
     path: /admin/addJoueurBDD
     controller: App\Controller\Admin\JoueurController::addJoueurBDDAction
+
+
 
 # Partie Membre
 member:

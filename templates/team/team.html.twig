@@ -54,13 +54,103 @@
                         </div>
                     </div>
                     <div>
+
                         <h4 style="text-transform: uppercase;">
                             <b>{{ team.history.title }}</b>
                         </h4>
                         <div>
-                            {% for i in 0..10 %}
-                                <p>Fait marquant <b>{{ i }}</b></p>
-                            {% endfor %}
+                            {% if faits %}
+                                <div class="form-group">
+                                    <div class="">
+                                        {% for fait in faits %}
+                                            <p>{{ fait.libelle }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="emplacementHome">
+                                    <div class="alert alert-warning">Aucun effectif trouvé.</div>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    <div>
+                        <h4 style="text-transform: uppercase;">
+                            <b>Effectif</b>
+                        </h4>
+                        <div>
+                            {% if effectif %}
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="centrerText"></th>
+                                        <th scope="col" class="centrerText">nom prenom</th>
+                                        <th scope="col" class="centrerText">bio</th>
+                                        <th scope="col" class="centrerText">date</th>
+                                        <th scope="col" class="centrerText">numero / poste</th>
+                                        <th scope="col" class="centrerText">taille</th>
+                                        <th scope="col" class="centrerText">Equipe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for joueur in effectif %}
+                                        <td scope="row" class="centrerText">
+                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/{{ joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                        </td>
+                                        <td scope="row" class="centrerText">{{ joueur.name }} {{ joueur.lastname }} </td>
+                                        <td class="centrerText">{{ joueur.bio }}</td>
+                                        <td class="centrerText">kamoulox</td>
+                                        <td class="centrerText">{{ joueur.numeroMaillot }} / {{ joueur.post.abrev }}</td>
+                                        <td class="centrerText">{{ joueur.taille }} cm </td>
+                                        <td class="centrerText">{{ joueur.team.name }} {{ joueur.team.surnom }} ( {{ joueur.team.conference.pointCardinal }} {{ joueur.team.conference.libelleConference }} )</td>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <div class="emplacementHome">
+                                    <div class="alert alert-warning">Aucun effectif trouvé.</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="text-transform: uppercase;">
+                            <b>HALL OF FAME</b>
+                        </h4>
+                        <div>
+                            {% if hallOfFame %}
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="centrerText"></th>
+                                        <th scope="col" class="centrerText">nom prenom</th>
+                                        <th scope="col" class="centrerText">bio</th>
+                                        <th scope="col" class="centrerText">date</th>
+                                        <th scope="col" class="centrerText">numero / poste</th>
+                                        <th scope="col" class="centrerText">taille</th>
+                                        <th scope="col" class="centrerText">Equipe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for joueur in hallOfFame %}
+                                        <td scope="row" class="centrerText">
+                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/{{ joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                        </td>
+                                        <td scope="row" class="centrerText">{{ joueur.name }} {{ joueur.lastname }} </td>
+                                        <td class="centrerText">{{ joueur.bio }}</td>
+                                        <td class="centrerText">kamoulox</td>
+                                        <td class="centrerText">{{ joueur.numeroMaillot }} / {{ joueur.post.abrev }}</td>
+                                        <td class="centrerText">{{ joueur.taille }} cm </td>
+                                        <td class="centrerText">{{ joueur.team.name }} {{ joueur.team.surnom }} ( {{ joueur.team.conference.pointCardinal }} {{ joueur.team.conference.libelleConference }} )</td>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <div class="emplacementHome">
+                                    <div class="alert alert-warning">Aucun effectif trouvé.</div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

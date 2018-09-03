@@ -10,14 +10,15 @@
         </div>
     </div>
     <div class="well fondFormulaire">
-        <form class="form-signin form-horizontal" role="form" action="{{ path('addBDDLegende') }}" method="post" enctype="multipart/form-data">
+        <form class="form-signin form-horizontal" role="form" action="{{ path('addBDDFait') }}" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                    Fait:
-                    <texterrea type="text" name="libelle" class="form-control" required>
-                    </texterrea>
+                Fait:
+                <textarea name="libelle" rows="1" class="form-control" value="200 caractére max">
+
+                </textarea>
             </div>
             <div class="form-group">
-                position dans l'historique: <input type="integer" name="pos_resume" class="form-control">
+                position dans l'historique: <input type="number" name="pos_resume" class="form-control">
             </div>
             <!-- formulaire History -->
             {% if histories %}

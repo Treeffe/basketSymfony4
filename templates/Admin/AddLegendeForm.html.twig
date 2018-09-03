@@ -30,6 +30,12 @@
                         <div class="">
                             taille: <input type="number" name="taille" step="0.1" class="form-control">
                         </div>
+                        <div class="">
+                            date de naissance: <input type="date" name="dateNaissance" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required>
+                        </div>
+                        <div class="">
+                            photo : <input type="file" name="logo">
+                        </div>
                     </div>
                     <!-- formulaire Post -->
                     {% if posts %}
@@ -47,20 +53,20 @@
                         Aucune équipe trouvée : <input type="text" name="sport" class="form-control">
                     {% endif %}
 
-                    <!-- formulaire History -->
-                    {% if histories %}
+                    <!-- formulaire Equipe -->
+                    {% if teams %}
                         <div class="form-group">
                             <div class="">
-                                Histoire :
-                                <select class="form-control" name="historyId" size="1" >
-                                    {% for history in histories %}
-                                        <option value={{ history.id }}>{{ history.title }}</option>
+                                Equipe :
+                                <select class="form-control" name="teamId" size="1" >
+                                    {% for team in teams %}
+                                        <option value={{ team.id }}>{{ team.surnom }} {{ team.name }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                         </div>
                     {% else %}
-                        Aucune histoire trouvée : <input type="text" name="histories" class="form-control">
+                        Aucune histoire trouvée : <input type="text" name="teams" class="form-control">
                     {% endif %}
                 </div>
                 <div class="formulaire_stats">

@@ -35,8 +35,8 @@ class FaitController extends Controller
         $libelle = $_POST['libelle'];
         $historyId = $_POST['historyId'];
         $entityManager = $this->getDoctrine()->getManager();
-        $history = $tests = $this->getDoctrine()
-            ->getRepository(Test2::class)
+        $history = $this->getDoctrine()
+            ->getRepository(History::class)
             ->find($historyId);
         $position = $_POST['pos_resume'];
 
@@ -51,6 +51,11 @@ class FaitController extends Controller
         // maybe set a "flash" success message for the user
         $this->addFlash('success', 'Votre compte à bien été enregistré.');
 
-        return addLegendeAction($request);
+        return $this->forward($this->routeToControllerName('addFait'));
+    }
+
+    private function routeToControllerName($routename) {
+        $routes = $this->get('router')->getRouteCollection();
+        return $routes->get($routename)->getDefaults()['_controller'];
     }
 }

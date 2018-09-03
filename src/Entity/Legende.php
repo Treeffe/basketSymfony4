@@ -93,7 +93,8 @@ class Legende
         return $this->dateNaissance;
     }
     function setDateNaissance($dateNaissance) {
-        $this->dateNaissance = $dateNaissance;
+        $newformat =new \DateTime($dateNaissance);
+        $this->dateNaissance = $newformat;
     }
 
     /**
@@ -117,7 +118,7 @@ class Legende
     }
     function setPhoto($photo) {
         //$this->photo = $photo;
-        $this->photo = "rien";
+        $this->photo = $photo;
     }
 
     /**
@@ -132,18 +133,6 @@ class Legende
     }
 
     /**
-     * @ManyToOne(targetEntity="History")
-     * @ORM\JoinColumn(name="History", referencedColumnName="id")
-     **/
-    private $history;
-    function getHistory() {
-        return $this->history;
-    }
-    function setHistory(History $history) {
-        $this->history = $history;
-    }
-
-    /**
      * @ORM\Column(type="decimal" , precision=5, scale=2)
      */
     private $taille;
@@ -151,6 +140,19 @@ class Legende
         return $this->taille;
     }
     function setTaille($taille) {
-        $this->contre = $taille;
+        $this->taille = $taille;
+    }
+
+    /**
+     * @ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumn(name="Team", referencedColumnName="id")
+     **/
+    private $team;
+    function getTeam() {
+        return $this->team;
+    }
+    function setTeam(Team $team) {
+        $this->team = new Team();
+        $this->team = $team;
     }
 }
