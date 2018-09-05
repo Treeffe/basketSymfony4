@@ -11,50 +11,43 @@
     {% block body %}
         {% if team %}
 
-            <div class="emplacementHome ecriture">
+            <div class=" offset-1 ecriture memeLigne">
+
                 <h3 class="sousMenu text-uppercase">
                     <b>{{ team.surnom }} {{ team.name }} </b>
                 </h3>
-                <div class="formulaire">
-                    <div class="affichageTeam_image">
-                        <div class="">
-                            <img src="/web/uploads/{{ team.logo }}" alt="{{ team.surnom }} {{ team.name }}" class="logo">
+                <div class="offset-1 affichageTeam_globale">
+                    <div class=" memeLigne affichageTeam_image">
+                        <img src="/web/uploads/{{ team.logo }}" alt="{{ team.surnom }} {{ team.name }}" class="logo">
+                    </div>
+                    <div class="memeLigne affichageTeam_team">
+                        <div >
+                            <h4 style="text-transform: uppercase;">
+                                <b>Description équipe</b>
+                            </h4>
+                            <p>Localisation : <b>{{ team.location }}</b></p>
+                            <p>position année précédente : <b>{{ team.positionanneePrec }}</b></p>
+                            <p>Entraineur du club : <b>{{ team.entraineur }}</b></p>
+                            <p>propriétaire du club : <b>{{ team.proprietaire }}</b></p>
+                            <p>création du club : <b>{{ team.dateCreation }}</b></p>
+                            <p>conférence : <b>{{ team.conference.libelleConference }} ( {{ team.conference.pointCardinal }} )</b></p>
                         </div>
                     </div>
-                    <div class="affichageTeam_team">
-                        <h4 style="text-transform: uppercase;">
-                            <b>Description équipe</b>
-                        </h4>
-                        <p>Localisation : <b>{{ team.location }}</b></p>
-                        <p>position année précédente : <b>{{ team.positionanneePrec }}</b></p>
-                        <p>Entraineur du club : <b>{{ team.entraineur }}</b></p>
-                        <p>propriétaire du club : <b>{{ team.proprietaire }}</b></p>
-                        <p>création du club : <b>{{ team.dateCreation }}</b></p>
+                    <div class="memeLigne affichageTeam_stade">
+                        <div class="">
+                            <h4 style="text-transform: uppercase;">
+                                <b>Stadium</b>
+                            </h4>
+                            <div>
+                                <p>nom : <b>{{ team.stadium.name }}</b></p>
+                                <p>adresse du stade : <b>{{ team.stadium.adress }}</b></p>
+                                <p>nombre de place maximum : <b>{{ team.stadium.place }}</b></p>
+                                <p>annee de création : <b>{{ team.stadium.annee }}</b></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="affichageTeam_autres">
-                    <div>
-                        <h4 style="text-transform: uppercase;">
-                            <b>Stadium</b>
-                        </h4>
-                        <div>
-                            <p>nom : <b>{{ team.stadium.name }}</b></p>
-                            <p>adresse du stade : <b>{{ team.stadium.adress }}</b></p>
-                            <p>nombre de place maximum : <b>{{ team.stadium.place }}</b></p>
-                            <p>annee de création : <b>{{ team.stadium.annee }}</b></p>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 style="text-transform: uppercase;">
-                            <b>Conference</b>
-                        </h4>
-                        <div>
-                            <p>conférence : <b>{{ team.conference.pointCardinal }}</b></p>
-                            <p>nom complet conférence : <b>{{ team.conference.libelleConference }} ( {{ team.conference.pointCardinal }} )</b></p>
-                        </div>
-                    </div>
-                    <div>
-
+                    <div class="offset-3">
                         <h4 style="text-transform: uppercase;">
                             <b>{{ team.history.title }}</b>
                         </h4>
@@ -69,13 +62,12 @@
                                 </div>
                             {% else %}
                                 <div class="emplacementHome">
-                                    <div class="alert alert-warning">Aucun effectif trouvé.</div>
+                                    <div class="alert alert-warning">Aucune histoire trouvé.</div>
                                 </div>
                             {% endif %}
                         </div>
-
                     </div>
-                    <div>
+                    <div class="offset-3">
                         <h4 style="text-transform: uppercase;">
                             <b>Effectif</b>
                         </h4>
@@ -114,7 +106,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div>
+                    <div class="offset-3">
                         <h4 style="text-transform: uppercase;">
                             <b>HALL OF FAME</b>
                         </h4>

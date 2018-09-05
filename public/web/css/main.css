@@ -106,19 +106,27 @@ footer#footer{margin-top: 20px;padding: 10px;}
     height: 7rem;
 }
 
+.affichageTeam_globale
+{
+    display: inline-flex;
+    width: 80%;
+}
+
 .affichageTeam_image
 {
-    padding-top: 2em;
+    padding-right: 1%;
+    width: 20%;
 }
 
 .affichageTeam_team
 {
-    padding: 1em;
+    padding-left: 1%;
+    width: 40%;
 }
 
-.affichageTeam_autres
+.affichageTeam_stadium
 {
-    padding-left: 11em;
+    width: 30%;
 }
 
 .jumbotron {
@@ -164,3 +172,8 @@ footer#footer{margin-top: 20px;padding: 10px;}
 .centrerText{
     text-align: center
 }
+
+.memeLigne{
+    display:inline-block;
+}
+
