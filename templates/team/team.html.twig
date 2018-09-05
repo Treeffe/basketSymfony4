@@ -86,7 +86,7 @@
                                     <tr>
                                         <th scope="col" class="centrerText"></th>
                                         <th scope="col" class="centrerText">nom prenom</th>
-                                        <th scope="col" class="centrerText">bio</th>
+                                        <th scope="col" class="centrerText">biographie</th>
                                         <th scope="col" class="centrerText">date</th>
                                         <th scope="col" class="centrerText">numero / poste</th>
                                         <th scope="col" class="centrerText">taille</th>
@@ -96,7 +96,7 @@
                                     <tbody>
                                     {% for joueur in effectif %}
                                         <td scope="row" class="centrerText">
-                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/{{ joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
                                         </td>
                                         <td scope="row" class="centrerText">{{ joueur.name }} {{ joueur.lastname }} </td>
                                         <td class="centrerText">{{ joueur.bio }}</td>
@@ -125,7 +125,7 @@
                                     <tr>
                                         <th scope="col" class="centrerText"></th>
                                         <th scope="col" class="centrerText">nom prenom</th>
-                                        <th scope="col" class="centrerText">bio</th>
+                                        <th scope="col" class="centrerText">biographie</th>
                                         <th scope="col" class="centrerText">date</th>
                                         <th scope="col" class="centrerText">numero / poste</th>
                                         <th scope="col" class="centrerText">taille</th>
@@ -135,7 +135,7 @@
                                     <tbody>
                                     {% for joueur in hallOfFame %}
                                         <td scope="row" class="centrerText">
-                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/{{ joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
                                         </td>
                                         <td scope="row" class="centrerText">{{ joueur.name }} {{ joueur.lastname }} </td>
                                         <td class="centrerText">{{ joueur.bio }}</td>
