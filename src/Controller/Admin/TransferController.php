@@ -9,7 +9,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\CategorieTransfer;
+use App\Entity\Joueur;
 use App\Entity\Team;
+use App\Entity\Transfer;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +25,20 @@ class TransferController extends Controller
      */
     public function addConferenceAction(Request $request) {
         //récuperation data
-        return $this->render('Admin/addTransferForm.html.twig');
+        $categories = $this->getDoctrine()
+            ->getRepository(CategorieTransfer::class)
+            ->findAll();
+
+        $teams = $this->getDoctrine()
+            ->getRepository(Team::class)
+            ->findAll();
+
+        $joueurs = $this->getDoctrine()
+            ->getRepository(Joueur::class)
+            ->findAll();
+
+
+        return $this->render('Admin/addTransferForm.html.twig', array('categories' => $categories, 'teams' => $teams, 'joueurs'=> $joueurs ));
     }
 
     /**
@@ -31,9 +46,10 @@ class TransferController extends Controller
      */
     public function addBDDConferenceAction(Request $request) {
         //instanciation Objet
-
+        $transfer = new Transfer();
 
         //Récuperation + objet fait
+
 
         //maj objet
         $entityManager = $this->getDoctrine()->getManager();
