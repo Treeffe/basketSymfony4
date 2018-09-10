@@ -16,11 +16,11 @@
                 <h3 class="sousMenu text-uppercase">
                     <b>{{ team.surnom }} {{ team.name }} </b>
                 </h3>
-                <div class="offset-1 affichageTeam_globale">
+                <div class=" affichageTeam_globale">
                     <div class=" memeLigne affichageTeam_image">
                         <img src="/web/uploads/{{ team.logo }}" alt="{{ team.surnom }} {{ team.name }}" class="logo">
                     </div>
-                    <div class="memeLigne affichageTeam_team">
+                    <div class="memeLigne col-5">
                         <div >
                             <h4 style="text-transform: uppercase;">
                                 <b>Description équipe</b>
@@ -33,7 +33,7 @@
                             <p>conférence : <b>{{ team.conference.libelleConference }} ( {{ team.conference.pointCardinal }} )</b></p>
                         </div>
                     </div>
-                    <div class="memeLigne affichageTeam_stade">
+                    <div class="offset memeLigne col-5">
                         <div class="">
                             <h4 style="text-transform: uppercase;">
                                 <b>Stadium</b>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                    <div class="offset-3">
+                    <div class="offset-2 col-10">
                         <h4 style="text-transform: uppercase;">
                             <b>{{ team.history.title }}</b>
                         </h4>
@@ -67,7 +67,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="offset-3">
+                    <div class="offset-2 col-10">
                         <h4 style="text-transform: uppercase;">
                             <b>Effectif</b>
                         </h4>
@@ -106,7 +106,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="offset-3">
+                    <div class="offset-2 col-10">
                         <h4 style="text-transform: uppercase;">
                             <b>HALL OF FAME</b>
                         </h4>
@@ -143,6 +143,89 @@
                                     <div class="alert alert-warning">Aucun effectif trouvé.</div>
                                 </div>
                             {% endif %}
+                        </div>
+                    </div>
+                    <div class="offset-2 col-10">
+                        <h4 style="text-transform: uppercase;">
+                            <b>Transferts</b>
+                        </h4>
+                        <div class="offset-1">
+                        <h4 style="text-transform: uppercase;">
+                            <b>Joueurs achetes</b>
+                        </h4>
+
+                        <div>
+                            {% if achats %}
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="centrerText"></th>
+                                        <th scope="col" class="centrerText">nom prenom</th>
+                                        <th scope="col" class="centrerText">biographie</th>
+                                        <th scope="col" class="centrerText">date</th>
+                                        <th scope="col" class="centrerText">numero / poste</th>
+                                        <th scope="col" class="centrerText">taille</th>
+                                        <th scope="col" class="centrerText">Equipe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for transfer in achats %}
+                                        <td scope="row" class="centrerText">
+                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ transfer.joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                        </td>
+                                        <td scope="row" class="centrerText">{{ transfer.joueur.name }} {{ transfer.joueur.lastname }} </td>
+                                        <td class="centrerText">transfer.date</td>
+                                        <td class="centrerText">{{ transfer.teamAcheteuse.name }} / {{ transfer.teamAcheteuse.surnom }}( {{ transfer.teamAcheteuse.conference.pointCardinal }} {{ transfer.teamAcheteuse.conference.libelleConference }} )</td>
+                                        <td class="centrerText">{{ transfer.teamVendeuse.name }} / {{ transfer.teamVendeuse.surnom }}( {{ transfer.teamVendeuse.conference.pointCardinal }} {{ transfer.teamVendeuse.conference.libelleConference }} )</td>
+                                        <td class="centrerText">{{ transfer.prix }} </td>
+                                        <td class="centrerText">{{ transfer.category.libelle }} </td>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <div class="emplacementHome">
+                                    <div class="alert alert-warning">Aucun effectif trouvé.</div>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <h4 style="text-transform: uppercase;">
+                            <b>Joueurs vendus</b>
+                        </h4>
+                        <div>
+                            {% if ventes %}
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="centrerText"></th>
+                                        <th scope="col" class="centrerText">nom prenom</th>
+                                        <th scope="col" class="centrerText">biographie</th>
+                                        <th scope="col" class="centrerText">date</th>
+                                        <th scope="col" class="centrerText">numero / poste</th>
+                                        <th scope="col" class="centrerText">taille</th>
+                                        <th scope="col" class="centrerText">Equipe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for transfer in ventes %}
+                                        <td scope="row" class="centrerText">
+                                            <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ transfer.joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                        </td>
+                                        <td scope="row" class="centrerText">{{ transfer.joueur.name }} {{ transfer.joueur.lastname }} </td>
+                                        <td class="centrerText">transfer.date</td>
+                                        <td class="centrerText">{{ transfer.teamAcheteuse.name }} / {{ transfer.teamAcheteuse.surnom }}( {{ transfer.teamAcheteuse.conference.pointCardinal }} {{ transfer.teamAcheteuse.conference.libelleConference }} )</td>
+                                        <td class="centrerText">{{ transfer.teamVendeuse.name }} / {{ transfer.teamVendeuse.surnom }}( {{ transfer.teamVendeuse.conference.pointCardinal }} {{ transfer.teamVendeuse.conference.libelleConference }} )</td>
+                                        <td class="centrerText">{{ transfer.prix }} </td>
+                                        <td class="centrerText">{{ transfer.category.libelle }} </td>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <div class="emplacementHome">
+                                    <div class="alert alert-warning">Aucun effectif trouvé.</div>
+                                </div>
+                            {% endif %}
+                        </div>
                         </div>
                     </div>
                 </div>

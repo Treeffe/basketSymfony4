@@ -39,19 +39,8 @@ class Transfer
     }
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $prix;
-    function getPrix() {
-        return $this->prix;
-    }
-    function setPrix($prix) {
-        $this->prix = $prix;
-    }
-
-    /**
      * @ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumn(name="TeamAcheteuse", referencedColumnName="id")
+     * @ORM\JoinColumn(name="teamAcheteuse", referencedColumnName="id")
      **/
     private $teamAcheteuse;
     function getTeamAcheteuse() {
@@ -63,7 +52,7 @@ class Transfer
 
     /**
      * @ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumn(name="TeamVendeuse", referencedColumnName="id")
+     * @ORM\JoinColumn(name="teamVendeuse", referencedColumnName="id")
      **/
     private $teamVendeuse;
     function getTeamVendeuse() {
@@ -96,4 +85,30 @@ class Transfer
     function setJoueur(Joueur $joueur ) {
         $this->joueur = $joueur;
     }
+
+    /**
+     * @ORM\Column(type="decimal" , precision=5, scale=2)
+     */
+    private $prix;
+    function getPrix() {
+        return $this->prix;
+    }
+    function setPrix($prix) {
+        $this->prix = $prix;
+    }
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="datetime")
+     */
+    private $date;
+    function getDate() {
+        return $this->date;
+    }
+    function setDate($date) {
+        $newformat =new \DateTime($date);
+        $this->date = $newformat;
+    }
+
 }
