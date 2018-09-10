@@ -131,7 +131,7 @@
                                         </td>
                                         <td scope="row" class="centrerText">{{ joueur.name }} {{ joueur.lastname }} </td>
                                         <td class="centrerText">{{ joueur.bio }}</td>
-                                        <td class="centrerText">kamoulox</td>
+                                        <td class="centrerText">{{ joueur.dateNaissance|date("m/d/Y") }}</td>
                                         <td class="centrerText">{{ joueur.numeroMaillot }} / {{ joueur.post.abrev }}</td>
                                         <td class="centrerText">{{ joueur.taille }} cm </td>
                                         <td class="centrerText">{{ joueur.team.name }} {{ joueur.team.surnom }} ( {{ joueur.team.conference.pointCardinal }} {{ joueur.team.conference.libelleConference }} )</td>
@@ -174,7 +174,7 @@
                                             <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ transfer.joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
                                         </td>
                                         <td scope="row" class="centrerText">{{ transfer.joueur.name }} {{ transfer.joueur.lastname }} </td>
-                                        <td class="centrerText">transfer.date</td>
+                                        <td class="centrerText">{{ transfer.date|date("m/d/Y") }}</td>
                                         <td class="centrerText">{{ transfer.teamAcheteuse.name }} / {{ transfer.teamAcheteuse.surnom }}( {{ transfer.teamAcheteuse.conference.pointCardinal }} {{ transfer.teamAcheteuse.conference.libelleConference }} )</td>
                                         <td class="centrerText">{{ transfer.teamVendeuse.name }} / {{ transfer.teamVendeuse.surnom }}( {{ transfer.teamVendeuse.conference.pointCardinal }} {{ transfer.teamVendeuse.conference.libelleConference }} )</td>
                                         <td class="centrerText">{{ transfer.prix }} </td>
@@ -199,11 +199,11 @@
                                     <tr>
                                         <th scope="col" class="centrerText"></th>
                                         <th scope="col" class="centrerText">nom prenom</th>
-                                        <th scope="col" class="centrerText">biographie</th>
                                         <th scope="col" class="centrerText">date</th>
-                                        <th scope="col" class="centrerText">numero / poste</th>
-                                        <th scope="col" class="centrerText">taille</th>
-                                        <th scope="col" class="centrerText">Equipe</th>
+                                        <th scope="col" class="centrerText">Equipe acheteuse</th>
+                                        <th scope="col" class="centrerText">Equipe vendeuse</th>
+                                        <th scope="col" class="centrerText">prix</th>
+                                        <th scope="col" class="centrerText">Catégorie transfert</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -212,7 +212,7 @@
                                             <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ transfer.joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
                                         </td>
                                         <td scope="row" class="centrerText">{{ transfer.joueur.name }} {{ transfer.joueur.lastname }} </td>
-                                        <td class="centrerText">transfer.date</td>
+                                        <td class="centrerText">{{ transfer.date|date("m/d/Y")  }}</td>
                                         <td class="centrerText">{{ transfer.teamAcheteuse.name }} / {{ transfer.teamAcheteuse.surnom }}( {{ transfer.teamAcheteuse.conference.pointCardinal }} {{ transfer.teamAcheteuse.conference.libelleConference }} )</td>
                                         <td class="centrerText">{{ transfer.teamVendeuse.name }} / {{ transfer.teamVendeuse.surnom }}( {{ transfer.teamVendeuse.conference.pointCardinal }} {{ transfer.teamVendeuse.conference.libelleConference }} )</td>
                                         <td class="centrerText">{{ transfer.prix }} </td>
