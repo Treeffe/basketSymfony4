@@ -100,6 +100,18 @@ class Joueur
     }
 
     /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $titulaire;
+    function getTitulaire() {
+        return $this->titulaire;
+    }
+
+    function setTitulaire($titulaire) {
+        $this->titulaire = $titulaire;
+    }
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $numeroMaillot;

@@ -48,6 +48,46 @@
                     </div>
                 </div>
                     <div class="offset-2 col-10">
+                        <div class="">
+                            <h4 style="text-transform: uppercase;">
+                                <b>Equipe titulaire</b>
+                            </h4>
+                            <div>
+                                {% if titulaires %}
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col" class="centrerText"></th>
+                                            <th scope="col" class="centrerText">nom prenom</th>
+                                            <th scope="col" class="centrerText">biographie</th>
+                                            <th scope="col" class="centrerText">date</th>
+                                            <th scope="col" class="centrerText">numero / poste</th>
+                                            <th scope="col" class="centrerText">taille</th>
+                                            <th scope="col" class="centrerText">Equipe</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for titulaire in titulaires %}
+                                            <td scope="row" class="centrerText">
+                                                <img data-src="holder.js/75x75" class="rounded-circle" alt="75x75" src="/web/uploads/{{ titulaire.joueur.photo }}" data-holder-rendered="true" style="width: 75px; height: 75px;">
+                                            </td>
+                                            <td scope="row" class="centrerText">{{ titulaire.joueur.name }} {{ titulaire.joueur.lastname }} </td>
+                                            <td class="centrerText">{{ titulaire.joueur.bio }}</td>
+                                            <td class="centrerText">kamoulox</td>
+                                            <td class="centrerText">{{ titulaire.joueur.numeroMaillot }} / {{ titulaire.joueur.post.abrev }}</td>
+                                            <td class="centrerText">{{ titulaire.joueur.taille }} cm </td>
+                                            <td class="centrerText">{{ titulaire.joueur.team.name }} {{ titulaire.joueur.team.surnom }} ( {{ titulaire.joueur.team.conference.pointCardinal }} {{ titulaire.joueur.team.conference.libelleConference }} )</td>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <div class="emplacementHome">
+                                        <div class="alert alert-warning">Aucun titulaire trouvé.</div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
                         <h4 style="text-transform: uppercase;">
                             <b>{{ team.history.title }}</b>
                         </h4>

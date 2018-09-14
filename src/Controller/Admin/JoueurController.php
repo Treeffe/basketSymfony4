@@ -68,6 +68,8 @@ class JoueurController extends Controller
         $rebond = $_POST['rebond'];
         $passe = $_POST['passe'];
 
+
+
         $team = $this->getDoctrine()
             ->getRepository(Team::class)
             ->find($teamId);
@@ -168,8 +170,17 @@ class JoueurController extends Controller
         $rebond = $_POST['rebond'];
         $passe = $_POST['passe'];
 
-
-
+        $titulaire ="";
+        if(! isset($_POST['titulaire']))
+        {
+            $titulaire = "pas titulaire";
+        }
+        else
+        {
+            $titulaire = $_POST['titulaire'];
+        }
+        //die(var_dump($titulaire));
+        $joueur->setTitulaire($titulaire);
         $joueur->setName($name);
         $joueur->setLastname($lastname);
         $joueur->setNumeroMaillot($numero);

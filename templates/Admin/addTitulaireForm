@@ -1,0 +1,56 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+    {% include 'Admin/layoutAdmin.html.twig' %}
+    <div class="parent">
+        <div class="enfant">
+            <h2>
+                Ajout d'un titulaire
+            </h2>
+        </div>
+    </div>
+    <div class="well fondFormulaire" >
+        <form class="form-signin form-horizontal" role="form" action="{{ path('addTitulaireBDD') }}" method="post" enctype="multipart/form-data">
+            <div class="">
+                <div class="form-group row">
+                    <label for="example-url-input" class="col-2 col-form-label">Joueur</label>
+                    <div class="col-5">
+                        {% if teams %}
+                            <div class="form-group">
+                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                    <select class="form-control" name="teamId" size="1" >
+                                        {% for team in teams %}
+                                            <option value={{ team.id }}>{{ team.surnom }} {{ team.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        {% else %}
+                            Aucune histoire trouvée : <input type="text" name="teams" class="form-control">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-url-input" class="col-2 col-form-label">Joueur</label>
+                    <div class="col-5">
+                        {% if joueurs %}
+                            <div class="form-group">
+                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                    <select class="form-control" name="joueurId" size="1" >
+                                        {% for joueur in joueurs %}
+                                            <option value={{ joueur.id }}>{{ joueur.name }} {{ joueur.lastname }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        {% else %}
+                            Aucune histoire trouvée : <input type="text" name="teams" class="form-control">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="formulaire_submit">
+                    <button type="submit" class="btn btn-default btn-primary formulaire_submit"><span class="glyphicon"></span>Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

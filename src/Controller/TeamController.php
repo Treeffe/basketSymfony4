@@ -14,6 +14,7 @@ use App\Entity\Stadium;
 use App\Entity\Conference;
 use App\Entity\FaitMarquant;
 use App\Entity\Legende;
+use App\Entity\Titulaire;
 use App\Entity\Transfer;
 
 use App\Form\addTeamForm;
@@ -180,8 +181,14 @@ class TeamController extends Controller
                 ['teamVendeuse' => $id]
             );
 
+        $titulaires =$this->getDoctrine()
+            ->getRepository(Titulaire::class)
+            ->findBy(
+                ['team' => $id]
+            );
+
         return $this->render('team/team.html.twig',
-            array('team' => $team, 'faits' => $faits, 'effectif' => $effectif, 'hallOfFame' => $hallOfFame, 'achats' => $achats, 'ventes' => $ventes));
+            array('team' => $team, 'faits' => $faits, 'effectif' => $effectif, 'hallOfFame' => $hallOfFame, 'achats' => $achats, 'ventes' => $ventes, 'titulaires' => $titulaires ));
 
     }
 
