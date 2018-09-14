@@ -1,6 +1,5 @@
 
 ###> symfony/framework-bundle ###
-/.env
 /public/bundles/
 /var/
 /vendor/
@@ -14,3 +13,5 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+.idea/

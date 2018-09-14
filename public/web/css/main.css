@@ -27,7 +27,6 @@ footer#footer{margin-top: 20px;padding: 10px;}
 
 .sousMenu
 {
-    margin: 2%;
     text-align: center;
 }
 
@@ -120,8 +119,7 @@ footer#footer{margin-top: 20px;padding: 10px;}
 
 .affichageTeam_team
 {
-    padding-left: 1%;
-    width: 40%;
+    padding-left: 5%;
 }
 
 .affichageTeam_stadium
@@ -176,4 +174,6 @@ footer#footer{margin-top: 20px;padding: 10px;}
 .memeLigne{
     display:inline-block;
 }
+
+/* Liste deroulante */
 
