@@ -8,6 +8,8 @@ ainsi que les fichiers du dossier db destiné à l'importation des dumb de la bd
 
 Enfin les commande suivante permettront un mapping entre le code et la bdd
 
+creation de la BDD ==>  php bin/console doctrine:database:create
+
 sauvegarder la migration : php bin/console doctrine:migration:diff *********
  php bin/console doctrine:migration:migrate 
 
